@@ -22,7 +22,8 @@ function weather(zip) {
           // html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
       
           // $("#weather").html(html);
-          if (weather.conditioncode > 12 && weather.conditioncode < 17) {
+          console.log(weather);
+          if (weather.code > 12 && weather.code < 17) {
             $("#snowing").text("YES");
           } else {
             $("#snowing").text("NO");
@@ -30,7 +31,8 @@ function weather(zip) {
           
         },
         error: function(error) {
-          $("#snowing").html('<p>'+error+'</p>');
+          $("#snowing").html("");
+          $("#error").text("invalid zip code")
         }
       });
 }
