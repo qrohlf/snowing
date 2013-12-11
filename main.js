@@ -22,7 +22,12 @@ function weather(zip) {
           // html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
       
           // $("#weather").html(html);
-          $("#snowing").text(weather.currently);
+          if (weather.conditioncode > 12 && weather.conditioncode < 17) {
+            $("#snowing").text("YES");
+          } else {
+            $("#snowing").text("NO");
+          }
+          
         },
         error: function(error) {
           $("#snowing").html('<p>'+error+'</p>');
